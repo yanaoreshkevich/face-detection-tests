@@ -10,22 +10,22 @@ describe('Face Detection tab', () => {
         faceDetectionPage.visit();
     })
 
-    it('User uploads image and preview is displayed', () => {
+    it('User uploads .jpg image and preview is displayed', () => {
+
+        cy.fixture('facePhoto.jpg', 'base64').then((imageBase64) => {
+
         faceDetectionPage
         .selectFaceDetectionTab()
         .clickUploadFileButton()
         .clickPrivacyPolicyConfirmButton()
-        .selectImg('facePhoto.jpg')
+        .selectImg('facePhoto.jpg');
 
         faceDetectionPage
         .getCarouselMainImg()
-        .invoke('attr', 'alt')
-        .should('include', 'facePhoto.jpg');
-
+        .should('be.visible')
+        .invoke('attr', 'src')
+        .should('include', imageBase64.substring(0, 100));
+        })
     })
 
-    afterEach(() => {
-        cy.clearCookies();
-         cy.clearLocalStorage();
-});
 })

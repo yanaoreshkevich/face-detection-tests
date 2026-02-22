@@ -2,7 +2,7 @@
 
 describe('Face Detection tab', () => {
 
-  it('face detection result for valid image', () => {
+  it('return FACER_OK for valid .jpg image', () => {
 
     cy.fixture('facePhoto.jpg', 'base64').then((imageBase64) => {
 
