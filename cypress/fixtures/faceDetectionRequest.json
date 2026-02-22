@@ -1,0 +1,28 @@
+{
+  "processParam": {
+    "onlyCentralFace": false,
+    "outputImageParams": {
+      "crop": {
+        "type": 1,
+        "size": [106, 134]
+      }
+    },
+    "attributes": {
+      "config": [
+        {"name": "Age"},
+        {"name": "EyeRight"},
+        {"name": "EyeLeft"},
+        {"name": "Emotion"},
+        {"name": "Smile"},
+        {"name": "Glasses"},
+        {"name": "HeadCovering"},
+        {"name": "ForeheadCovering"},
+        {"name": "Mouth"},
+        {"name": "MedicalMask"},
+        {"name": "Occlusion"},
+        {"name": "StrongMakeup"},
+        {"name": "Headphones"}
+      ]
+    }
+  }
+}
