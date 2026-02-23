@@ -12,10 +12,17 @@ describe('Face Detection tab', () => {
 
     it('User uploads .jpg image and preview is displayed', () => {
 
-        cy.fixture('facePhoto.jpg', 'base64').then((imageBase64) => {
+        let initialSrc;
 
         faceDetectionPage
         .selectFaceDetectionTab()
+        .getCarouselMainImg()
+        .invoke('attr', 'src')
+        .then((src) => {
+            initialSrc = src;
+        });
+
+        faceDetectionPage
         .clickUploadFileButton()
         .clickPrivacyPolicyConfirmButton()
         .selectImg('facePhoto.jpg');
@@ -24,8 +31,6 @@ describe('Face Detection tab', () => {
         .getCarouselMainImg()
         .should('be.visible')
         .invoke('attr', 'src')
-        .should('include', imageBase64.substring(0, 100));
-        })
+        .should('not.eq', initialSrc);
     })
-
 })

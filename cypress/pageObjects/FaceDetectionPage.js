@@ -3,6 +3,7 @@ class FaceDetectionPage {
     getFacedetectionTab = () => cy.contains('nav div', 'Face detection');
     getUploadFileButton = () => cy.contains('button', 'Upload a file');
     getPrivacyPolicyConfirmButton = () => cy.contains('button', 'Confirm');
+    getFileInput = () => cy.get('input[type="file"]');
     getCarouselMainImg = () => cy.get('[class*="Carousel_main"] img');
 
     
@@ -24,7 +25,8 @@ class FaceDetectionPage {
     }
 
     selectImg(fileName) {
-        cy.get('input[type="file"]').selectFile(`cypress/fixtures/${fileName}`, { force: true });
+        this.getFileInput()
+        .selectFile(`cypress/fixtures/${fileName}`, { force: true });
         return this;
     }
 
