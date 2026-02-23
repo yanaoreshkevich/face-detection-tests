@@ -11,14 +11,14 @@ This project demonstrates UI and API testing for Face SDK Web application.
 
 ### UI Test
 
-- uploads image
-- verifies preview
-- checks base64 rendering
+- Navigate to Face Detection tab
+- Upload image (.jpg)
+- Verify that preview image is updated
 
 ### API Test
 
-- sends face detection request
-- verifies response
+- Send face detection request
+- Validate response status and body
 
 ## Installation
 
